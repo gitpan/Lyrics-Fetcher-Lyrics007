@@ -1,0 +1,9 @@
+Changes
+MANIFEST
+Makefile.PL
+README
+eg/example.pl
+lib/Lyrics/Fetcher/Lyrics007.pm
+t/1-basic.t
+t/2-pod.t
+t/3-pod-coverage.t

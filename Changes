@@ -1,0 +1,15 @@
+Revision history for Lyrics-Fetcher-Lyrics007
+
+0.04    24/03/08
+        Added basic tests in t/ and example in eg/
+
+0.03    24/03/08
+        Module re-write to use the printable page that exists for each set of
+        lyrics.
+
+0.02    16/03/08
+        Added case for <br /> tag within the lyrics instead of <BR>
+
+0.01    15/03/08
+        First working draft. Subject to testing.
+        Module Framework created with module-starter.
