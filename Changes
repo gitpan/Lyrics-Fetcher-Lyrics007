@@ -1,5 +1,10 @@
 Revision history for Lyrics-Fetcher-Lyrics007
 
+0.05    26/03/08
+        Tweaked the module to allow non-alphanumerics in the parameteres
+        safely and fix the word uppercasing. Also fixed a couple of errors 
+        in the POD
+
 0.04    24/03/08
         Added basic tests in t/ and example in eg/
 

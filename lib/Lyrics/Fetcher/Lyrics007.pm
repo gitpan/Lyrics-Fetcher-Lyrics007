@@ -6,15 +6,20 @@ use WWW::Mechanize;
 use Carp;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.05';
 our $AGENT   = "Perl/Lyrics::Fetcher::Lyrics007 $VERSION";
 
 sub fetch {
 
     my $self = shift;
+    my ($band, $track) = @_;
+
     # make sure that the artist and teack names are all Capitalised as the
     # site pages are all uppercase firsts. 
-    my ($band, $track) = map (ucfirst lc $_,  @_); 
+    for ($band, $track) {
+        $_ = _title_case_all($_);
+        $_ = URI::Escape::uri_escape($_);
+    }
 
     # preset the error var with ok, and change it if it went wrond.
     $Lyrics::Fetcher::Error = 'OK';
@@ -26,10 +31,6 @@ sub fetch {
         return;
     }
     
-    # get rid of anything nasty in the passed data.
-   $band =~ s/[^0-9a-z\s]//ig;
-   $track =~ s/[^0-9a-z\s]//ig;
-
     # set up the url to call.
     my $url = "http://www.lyrics007.com/$band Lyrics/$track Lyrics.html";
 
@@ -58,7 +59,7 @@ sub fetch {
         $lyrics =~ s/This is lyrics from www.lyrics007.com(?:\n)?//gi;
         
         # and get shot of the title.
-        $lyrics =~ s/Tile\s?:[\w\s-]+?\n//gi;
+        $lyrics =~ s/Tit?le\s?:.+\n//gi;
 
         # if we have some form of lyrics at this point then
         # return them, else error0z      
@@ -76,6 +77,13 @@ sub fetch {
     }
 }
 
+
+# Uppercase all the words passed in a string.
+sub _title_case_all {
+    return join ' ', map { ucfirst $_ } split /\s/, lc $_;
+}
+
+
 1; 
 
 __END__ # End of Lyrics::Fetcher::Lyrics007
@@ -86,10 +94,10 @@ Lyrics::Fetcher::Lyrics007
     - Fetcher module for David Precious' (BIGPRESH) Lyrics::Fetcher 
 
 
-=head1 SYSOPSIS
+=head1 SYNOPSIS
 
-use Lyrics::Fetcher::Lyrics007
-print Lyrics::Fetcher::Lyrics007->fetch('<band>', '<track>');
+    use Lyrics::Fetcher::Lyrics007
+    print Lyrics::Fetcher::Lyrics007->fetch('<band>', '<track>');
 
 
 =head1 DESCRIPTION

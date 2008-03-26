@@ -12,4 +12,7 @@ WriteMakefile(
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Lyrics-Fetcher-Lyrics007-*' },
+
+	# add LICENSE parameter if installed EU::MM is new enough to support it:
+	($ExtUtils::MakeMaker::VERSION >= 6.3002 ? (LICENSE  => "perl") : ()),
 );
