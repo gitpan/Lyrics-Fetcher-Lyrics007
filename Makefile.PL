@@ -6,9 +6,12 @@ WriteMakefile(
     NAME                => 'Lyrics::Fetcher::Lyrics007',
     AUTHOR              => 'James Ronan <james@ronanweb.co.uk>',
     VERSION_FROM        => 'lib/Lyrics/Fetcher/Lyrics007.pm',
+    ABSTRACT_FROM		=> 'lib/Lyrics/Fetcher/Lyrics007.pm',
     PL_FILES            => {},
     PREREQ_PM => {
-        'Test::More' => 0,
+        'Test::More' 		=> 0,
+        'WWW::Mechanize' 	=> 0,
+        'URI::Escape'		=> 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Lyrics-Fetcher-Lyrics007-*' },

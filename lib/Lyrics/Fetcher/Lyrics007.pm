@@ -2,11 +2,12 @@ package Lyrics::Fetcher::Lyrics007;
 
 use 5.008000;
 use strict;
+use warnings;
 use WWW::Mechanize;
 use Carp;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';  # !! Remember to update POD version below.
 our $AGENT   = "Perl/Lyrics::Fetcher::Lyrics007 $VERSION";
 
 sub fetch {
@@ -90,8 +91,7 @@ __END__ # End of Lyrics::Fetcher::Lyrics007
 
 =head1 NAME
 
-Lyrics::Fetcher::Lyrics007 
-    - Fetcher module for David Precious' (BIGPRESH) Lyrics::Fetcher 
+Lyrics::Fetcher::Lyrics007 - Attempts to fetch lyrics from www.lyrics007.com
 
 
 =head1 SYNOPSIS
@@ -120,7 +120,7 @@ given band.
 
 =head1 VERSION
 
-Version 0.04
+Version 0.06
 
 
 =head1 AUTHOR

@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name:                Lyrics-Fetcher-Lyrics007
-version:             0.05
-abstract:            ~
+version:             0.06
+abstract:            Attempts to fetch lyrics from www.lyrics007.com
 license:             perl
 author:              
     - James Ronan <james@ronanweb.co.uk>
@@ -9,6 +9,8 @@ generated_by:        ExtUtils::MakeMaker version 6.44
 distribution_type:   module
 requires:     
     Test::More:                    0
+    URI::Escape:                   0
+    WWW::Mechanize:                0
 meta-spec:
     url:     http://module-build.sourceforge.net/META-spec-v1.3.html
     version: 1.3
